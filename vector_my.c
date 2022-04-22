@@ -26,13 +26,17 @@ bool vector_isEmpty(Vector *vec) {
 int vector_push_back(Vector *vec, int val) {
 
     if (vec->data_size + 1 > vec->size) {
-        vec->size *= 2;
-        vec = realloc(vec, sizeof(Vector) + vec->size);
+        if (vec->size > SIZE_MAX / 2) {
+            vec->size = SIZE_MAX;
+        }
+        else {
+            vec->size *= 2;
+        }
+        vec = realloc(vec, sizeof(Vector) + sizeof(int) * vec->size);
         if (vec->arr == NULL) {
             fprintf(stderr, "null pointer");
             return 0;
         }
-        if (vec->size <= vec->data_size) return 0;
     }
 
     vec->arr[vec->data_size] = val;
@@ -47,7 +51,7 @@ int vector_pop_back(Vector *vec) {
 
     if (vec->data_size < vec->size / 4) {
         vec->size /= 4;
-        vec = realloc(vec, sizeof(Vector) + vec->size);
+        vec = realloc(vec, sizeof(Vector) + sizeof(int) * vec->size);
         if (vec->arr == NULL) {
             fprintf(stderr, "null pointer");
             return 0;

@@ -51,6 +51,8 @@ int vector_pop_back(Vector *vec) {
 }
 
 int vector_get_val(Vector *vec, size_t idx) {
+    if (vec == (Vector*){0})
+
     if (idx > vec->data_size) {
         return 0;
     }
@@ -63,5 +65,6 @@ int vector_destroy(Vector *vec) {
     vec->size = 0;
     vec->data_size = 0;
     free(vec);
+    vec = (Vector*){0};
     return 1;
 }

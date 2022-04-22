@@ -48,3 +48,10 @@ int vector_get_val(size_t idx) {
 
     return Vector.arr[idx];
 }
+
+int vector_destroy() {
+    free(Vector.arr);
+    Vector.size = 0;
+    Vector.data_size = 0;
+    return 1;
+}

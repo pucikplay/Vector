@@ -13,5 +13,9 @@ int main() {
 
     printf("v[0] = %d, v[1] = %d, v[2] = %d, v[3] = %d, size = %ld\n", vector_get_val(0), vector_get_val(1), vector_get_val(2), vector_get_val(3), vector_size());
 
+    vector_destroy();
+
+    printf("v[0] = %d\n", vector_get_val(0));
+
     return 0;
 }

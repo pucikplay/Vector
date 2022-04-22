@@ -18,5 +18,6 @@ bool vector_isEmpty();
 int vector_push_back(int val);
 int vector_pop_back();
 int vector_get_val(size_t idx);
+int vector_destroy();
 
 #endif //VECTOR_MY

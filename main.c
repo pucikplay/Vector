@@ -16,7 +16,7 @@ int main() {
 
     vector_destroy(vector);
 
-    printf("v[0] = %d\n", vector_get_val(vector, 0));
+    //printf("v[0] = %d\n", vector_get_val(vector, 0));
 
     return 0;
 }

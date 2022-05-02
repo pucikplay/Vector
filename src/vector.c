@@ -15,7 +15,7 @@ struct Vector
 
 Vector* vector_create()
 {
-    Vector* vec = malloc(sizeof(Vector));
+    Vector* vec = malloc(sizeof(Vector) + sizeof(int) * INIT_SIZE);
 
     *vec = (Vector){
         .data_size = 0,
@@ -52,10 +52,10 @@ int vector_append(Vector* vec, int new_elem)
     vec->arr[vec->data_size] = new_elem;
     vec->data_size++;
 
-    return new_elem;
+    return 1;
 }
 
-int vector_pop(Vector* vec)
+int vector_pop(Vector* vec, int* elem_dest)
 {
     if (!vec || vec->data_size == 0)
         return 0;
@@ -72,8 +72,9 @@ int vector_pop(Vector* vec)
     }
     
     vec->data_size--;
+    *elem_dest = vec->arr[vec->data_size];
 
-    return vec->arr[vec->data_size];
+    return 1;
 }
 
 bool vector_is_empty(Vector* vec)

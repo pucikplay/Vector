@@ -23,5 +23,3 @@ test.out:
 clean:
 	$(RM) main.out
 	$(RM) test.out
-	$(RM) $(OBJ)
-

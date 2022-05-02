@@ -6,7 +6,7 @@
 
 typedef struct Vector Vector;
 
-Vector* vector_create();
+Vector* vector_create(void);
 void vector_destroy(Vector* vec);
 int vector_append(Vector* vec, int new_elem);
 int vector_pop(Vector* vec);
